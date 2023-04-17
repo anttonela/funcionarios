@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <title>Dados dos funcionários</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="cabecario">
+            <a class="cabecario-nome"></a>
+            <a href="#">
+                <element>
+                    <input type="text" class="pesquisa">
+                    <img class="cabecario-pesquisa-icon" src="./img/search-3.png" alt="Buscar..." />
+                </element>
+            </a>
+            <a style="padding-left: 9rem; padding-top: 25px;" href="#comentarios">Comentários</a>
+            <a style="padding-left: 3em; padding-top: 25px;" href="#atualizacoes">Atualizações</a>
+            <a style="padding-left: 3rem; padding-top: 25px;" href="#duvidas">Dúvidas</a>
+            <a href="#icon"><img style="height: 30px; width: 30px; padding-top: 5px; padding-left: 3rem;" src="./img/icon.png"></a>
+        </div>
+    </div> 
+
+    <div class="linha">
+
+        <div class="coluna-esquerda">
+            <div class="menu">
+                <div class="paginas">
+                    <div class="paginas-subtitulos">Páginas</div>
+                        <div class="tela"><img class="icon" src="./img/home.png">Página inicial</div>
+                        <div class="tela"><img class="icon" src="./img/search-3.png">Buscas Recentes
+                    </div>
+                    <div class="tela-atual"><img class="icon" src="./img/adicionaruser.png">Dados dos Funcionários</div>
+                    <div class="tela"><img class="icon" src="./img/agendamento-icon.png">Agendamentos</div>
+                    <div class="tela"><img class="icon" src="./img/media.png">Calculadora</div>
+                    <div class="divisor"></div>
+                    <div class="paginas-subtitulos">Mais</div>
+                    <div class="tela"><img class="icon" src="./img/email.png">Emails</div>
+                    <div class="tela"><img class="icon" src="./img/configuracoes.png">Configurações</div>
+                    <div class="divisor"></div>
+                    <div class="paginas-subtitulos">Modo atual: Administrador</div>
+                    <div class="tela"><img class="icon" src="./img/erros.png">Erros</div>
+                    <div class="tela"><img class="icon" src="./img/adicionar.png">Adicionar tela</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="coluna-direita">
+            <div class="titulo">Página atual</div>
+            <div class="subtitulo"> Listagem com informações dos funcionários</div>
+                <div class="titulo-grafico">Listagem Funcionários</div>
+                <div class="grafico">
+                    <div class="child-titulo">Nome</div>
+                    <div class="child-titulo">Idade</div>
+                    <div class="child-titulo">Cargo</div>
+                    <div class="child-titulo">Salário</div>
+                    <div class="child-titulo">Situação</div>
+                    <div class="child-titulo">Carga</div>
+                    <div class="child-titulo">Operações</div>
+
+<?php 
+
+$dir = new DirectoryIterator("funcionarios");
+foreach ($dir as $fileInfo) {
+    $nome = $fileInfo->getFilename();
+    $arquivo = file("/var/www/html/site/grafico-funcionarios/funcionarios/{$nome}");
+
+    $arConteudo = [];
+    foreach ($arquivo as $chave => $valor) {
+        $arConteudo[$chave] = $valor;
+    }
+
+    if ($arConteudo[0] == '') {
+        continue;
+    }
+
+?>
+
+        <div class="child"><?= $arConteudo[0] ?></div>
+        <div class="child"><?= $arConteudo[1] ?></div>
+        <div class="child"><?= $arConteudo[2] ?></div>
+        <div class="child"><?= $arConteudo[3] ?></div>
+        <div class="child"><?= $arConteudo[4] ?></div>
+        <div class="child"><?= $arConteudo[5] ?></div>
+        <div class="child-operacao">
+            <button class="acoes" name="deletar" id="deletar" onclick="deletar('<?= $nome ?>')"><img class="acoes-deletar" src="./img/lixeira-icon.png"></button>
+            <a style="text-decoration:none; background:none;" href="./editar.phtml/<?= $nome ?>">
+                <button class="acoes" name="editar" id="editar" href="./editar.phtml">
+                     <img class="acoes-editar" src="./img/editar-icon.png">
+                </button>
+            </a>
+       </div>
+
+    <?php
+    }
+    ?>
+    </div>
+                <a style="text-decoration: none; color:#232629;" href="./grafico-funcionarios/adicionar-funcionario.php">
+                    <div class="adicionar-funcionario" name="adicionar-funcionario">Adicionar Funcionário +</div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
