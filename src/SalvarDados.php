@@ -1,4 +1,5 @@
 <?php
+
 namespace Buscador;
 
 use PDO;
@@ -7,44 +8,39 @@ use Buscador\Conexao;
 
 class SalvarDados
 {
-    private $conexao;
-
-    public function __construct()
-    {
-        print "Iniciando \n";
-        print var_dump( $this->Teste() );
-        print "\nSaindo aqui";
-    }
-    
     public function adicionar()
     {
-        $adicionar = new Adicionar();
-        $adicionar->adicionando();
+        $new = new Adicionar();
+        $adicionar = $new->adicionando();
+        return $adicionar;
     }
 
     public function remover()
     {
-        $remover = new Remover();
-        $remover->removendo();
+        $new = new Remover();
+        $remover = $new->removendo();
+        return $remover;
     }
 
     public function listar()
     {
-        $listar = new Listar();
-        $listar->listando();
+        $new = new Listar();
+        $listar = $new->listando();
+        return $listar;
     }
     
     public function Teste()
     {
         try {
-            $this->conexao = new Conexao();
-            $conexaoDb = $this->conexao->conectando();
-            $salvarDados = $conexaoDb->$this->pdo->prepare($this->adicionar, $this->remover, $this->listar);
-            $salvarDados->execute();
+            $conexao = new Conexao();
+            $conexaoDb = $conexao->conectando();
+            $sql = $this->adicionar();
+           // die( "Aqui o código " .  var_dump($sql) );
+            $conexaoDb->prepare( $sql );
+            $conexaoDb->execute();
 
             print_r($salvarDados->fetchAll());
-            print "Feito";
-            return $this->conexao;
+            print "Alteração salva!";
         } catch (PDOException $erro) {
             print "Erro: {$erro}";
         }

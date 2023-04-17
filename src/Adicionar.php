@@ -12,6 +12,7 @@ class Adicionar
     
     public function adicionando() 
     {
-        $adicionarFuncionario = "insert into Funcionarios(nome, idade, situacao, salario, cargo) values ($this->nome, $this->idade, $this->situacao, $this->salario, $this->cargo)";
+        $adicionarFuncionario = "insert into funcionarios(nome, idade, situacao, salario, cargo) values ($this->nome, $this->idade, $this->situacao, $this->salario, $this->cargo)";
+        return $adicionarFuncionario;
     }
 }

@@ -1,7 +1,9 @@
 <?php
 require 'vendor/autoload.php';
+
+use Buscador\Conexao;
 use Buscador\SalvarDados;
 
-print "Começando a execução";
+print "\nIndex:\n";
 
-$salvar = new SalvarDados();
+$salvar = new Conexao();
