@@ -2,17 +2,19 @@
 
 namespace Buscador;
 
-class Adicionar 
+class Adicionar extends Banco
 {
-    public $nome;
-    public $idade;
-    public $situacao;
-    public $salario;
-    public $cargo;
-    
-    public function adicionando() 
-    {
-        $adicionarFuncionario = "insert into funcionarios(nome, idade, situacao, salario, cargo) values ($this->nome, $this->idade, $this->situacao, $this->salario, $this->cargo)";
-        return $adicionarFuncionario;
+    public function _inserirFuncionario() 
+    {   
+        $nome = 'Felipe';
+        $idade = 14;
+
+        $conexao = new Conexao();
+        $pdo = $conexao->conectando();
+
+        $inserir = "insert into Funcionario (nome, idade) values ('$nome', $idade);";
+        $statement = $this->conexao->prepare($inserir);
+        $statement->execute();
+        print_r($statement->fetchAll());
     }
 }
