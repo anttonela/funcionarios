@@ -22,5 +22,5 @@ $salvar = new Cargo();
 $salvar->_inserirCargo();
 */
 
-$salvar = new Adicionar();
+$salvar = new Funcionario();
 $salvar->_inserirFuncionario();
