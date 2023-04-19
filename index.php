@@ -2,14 +2,11 @@
 
 require 'vendor/autoload.php';
 
-use Buscador\Adicionar;
 use Buscador\Cargo;
 use Buscador\Conexao;
 use Buscador\Funcionario;
 use Buscador\Listar;
 use Buscador\Nivel;
-use Buscador\SalvarDados;
-use Buscador\Remover;
 
 // Adicionar Funcionário 
 /*
