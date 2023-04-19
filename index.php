@@ -26,3 +26,5 @@ $salvar->_inserirNivel();
 $salvar = new Cargo();
 $salvar->setDados(1, 'Estagiário', 7);
 $salvar->_inserirCargo();
+
+print "a";
