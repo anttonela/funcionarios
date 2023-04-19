@@ -14,20 +14,4 @@ class Banco
         $newconexao = new Conexao();
         $this->conexao = $newconexao->conectando();
     }
-
-
-    public function inserirFuncionario()
-    {
-
-    }
-
-    public function inserirNivel()
-    {
-
-    }
-
-    public function inserirCargo()
-    {
-
-    }
 }

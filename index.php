@@ -16,15 +16,14 @@ $salvar->_inserirFuncionario();
 */
 
 // Adicionar Nivel
-/*
 $salvar = new Nivel();
 $salvar->setDados(7, 'Iniciante');
 $salvar->_inserirNivel();
-*/
+
 
 // Adicionar Cargo
+/*
 $salvar = new Cargo();
-$salvar->setDados(1, 'Estagiário', 7);
+$salvar->setDados(1, 'Estagiário', $this->iniciante);
 $salvar->_inserirCargo();
-
-print "a";
+*/
