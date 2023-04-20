@@ -37,14 +37,14 @@ class Cargo extends Banco
         return $executar;
     }
 
-    public function alterarCargo()
+    public function alterarCargo(): array
     {
         $alterar = "update cargo set {$this->coluna} = '{$this->novoDado}' where id_cargo = {$this->numeroId};";
         $executar = $this->executar($alterar);
         return $executar;
     }
 
-    public function deletarCargo()
+    public function deletarCargo(): array
     {
         $deletar = "delete from cargo where id_cargo = {$this->idCargo};";
         $executar = $this->executar($deletar);
