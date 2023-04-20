@@ -49,8 +49,8 @@ class Funcionario extends Banco
 
     public function deletarFuncionario()
     {
-        $alterar = "delete from funcionario where id = {$this->idFuncionario};";
-        $statement = $this->conexao->prepare($alterar);
+        $deletar = "delete from funcionario where id = {$this->idFuncionario};";
+        $statement = $this->conexao->prepare($deletar);
         $statement->execute();
         print_r($statement->fetchAll());
     }

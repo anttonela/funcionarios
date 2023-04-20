@@ -37,7 +37,7 @@ $salvar->deletarFuncionario();
 // Adicionar Nivel - id do nivel e o nivel
 /*
 $salvar = new Nivel();
-$salvar->setInserir(8, 'Iniciante');
+$salvar->setInserir(9, 'Iniciante');
 $salvar->inserirNivel();
 */
 
@@ -61,7 +61,7 @@ $salvar->deletarNivel();
 // Adicionar Cargo - id do cargo, cargo, e id do nivel
 /*
 $salvar = new Cargo();
-$salvar->setInserir(1, 'Estagiário', 1);
+$salvar->setInserir(2, 'Estagiário', 2);
 $salvar->inserirCargo();
 */
 

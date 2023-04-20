@@ -48,8 +48,8 @@ class Cargo extends Banco
 
     public function deletarCargo()
     {
-        $alterar = "delete from cargo where id_cargo = {$this->idCargo};";
-        $statement = $this->conexao->prepare($alterar);
+        $deletar = "delete from cargo where id_cargo = {$this->idCargo};";
+        $statement = $this->conexao->prepare($deletar);
         $statement->execute();
         print_r($statement->fetchAll());
     }

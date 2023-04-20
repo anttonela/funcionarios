@@ -48,8 +48,8 @@ class Nivel extends Banco
 
     public function deletarNivel()
     {
-        $alterar = "delete from nivel where id_nivel = {$this->idNivel};";
-        $statement = $this->conexao->prepare($alterar);
+        $deletar = "delete from nivel where id_nivel = {$this->idNivel};";
+        $statement = $this->conexao->prepare($deletar);
         $statement->execute();
         print_r($statement->fetchAll());
     }
