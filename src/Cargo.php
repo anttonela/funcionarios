@@ -11,46 +11,43 @@ class Cargo extends Banco
     public $numeroId;
     public $novoDado;
 
-    public function setInserir($idCargo, $cargo, $idNivel)
+    public function setInserir(int $idCargo, string $cargo, int $idNivel): void
     {
         $this->idCargo = $idCargo;
         $this->cargo = $cargo;
         $this->idNivel = $idNivel;
     }
 
-    public function setAlterar($coluna, $numeroId, $novoDado)
+    public function setAlterar(string $coluna, int $numeroId, string $novoDado): void
     {
         $this->coluna = $coluna;
         $this->numeroId = $numeroId;
         $this->novoDado = $novoDado;
     }
 
-    public function setDeletar($idCargo)
+    public function setDeletar(int $idCargo): void
     {
         $this->idCargo = $idCargo;
     }
 
-    public function inserirCargo()
+    public function inserirCargo(): array
     {
         $inserir = "insert into cargo (id_cargo, cargo, id_nivel) values ({$this->idCargo},'{$this->cargo}', {$this->idNivel});";
-        $statement = $this->conexao->prepare($inserir);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($inserir);
+        return $executar;
     }
 
     public function alterarCargo()
     {
         $alterar = "update cargo set {$this->coluna} = '{$this->novoDado}' where id_cargo = {$this->numeroId};";
-        $statement = $this->conexao->prepare($alterar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($alterar);
+        return $executar;
     }
 
     public function deletarCargo()
     {
         $deletar = "delete from cargo where id_cargo = {$this->idCargo};";
-        $statement = $this->conexao->prepare($deletar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($deletar);
+        return $executar;
     }
 }

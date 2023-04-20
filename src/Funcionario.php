@@ -13,45 +13,42 @@ class Funcionario extends Banco
     public $novoDado;
     public $idFuncionario;
 
-    public function setInserir($nome, $idade)
+    public function setInserir(string $nome, int $idade): void
     {
         $this->nome = $nome;
         $this->idade = $idade;
     }
 
-    public function setAlterar($coluna, $numeroId, $novoDado)
+    public function setAlterar(string $coluna, int $numeroId, string $novoDado): void
     {
         $this->coluna = $coluna;
         $this->numeroId = $numeroId;
         $this->novoDado = $novoDado;
     }
 
-    public function setDeletar($idFuncionario)
+    public function setDeletar(int $idFuncionario): void
     {
         $this->idFuncionario = $idFuncionario;
     }
 
-    public function inserirFuncionario()
+    public function inserirFuncionario(): array
     {
         $inserir = "insert into funcionario (nome, idade) values ('{$this->nome}', {$this->idade});";
-        $statement = $this->conexao->prepare($inserir);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($inserir);
+        return $executar;
     }
 
-    public function alterarFuncionario()
+    public function alterarFuncionario(): array
     {
         $alterar = "update funcionario set $this->coluna = $this->novoDado where id = $this->numeroId;";
-        $statement = $this->conexao->prepare($alterar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($alterar);
+        return $executar;
     }
 
-    public function deletarFuncionario()
+    public function deletarFuncionario(): array
     {
         $deletar = "delete from funcionario where id = {$this->idFuncionario};";
-        $statement = $this->conexao->prepare($deletar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($deletar);
+        return $executar;
     }
 }

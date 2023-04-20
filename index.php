@@ -13,7 +13,7 @@ use Buscador\Nivel;
 // Adicionar Funcionário - Nome e idade
 /*
 $salvar = new Funcionario();
-$salvar->setInserir('Carlos', 16);
+$salvar->setInserir('Carlos', 18);
 $salvar->inserirFuncionario();
 */
 
@@ -61,15 +61,16 @@ $salvar->deletarNivel();
 // Adicionar Cargo - id do cargo, cargo, e id do nivel
 /*
 $salvar = new Cargo();
-$salvar->setInserir(2, 'Estagiário', 2);
+$salvar->setInserir(4, 'Avançado', 4);
 $salvar->inserirCargo();
 */
 
 // Alterar Cargo - Coluna que deseja alterar, id do cargo e o novo dado
 /*
 $salvar = new Cargo();
-$salvar->setAlterar('cargo', 1, 'Estagiário');
-$salvar->alterarCargo();
+$salvar->setAlterar('id_nivel', 2, '7');
+$teste = $salvar->alterarCargo();
+print_r($teste);
 */
 
 // Deletar Cargo - ID do cargo que deseja deletar

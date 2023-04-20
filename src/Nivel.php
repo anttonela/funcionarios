@@ -12,45 +12,42 @@ class Nivel extends Banco
     public $novoDado;
     public $numeroId;
 
-    public function setInserir($idNivel, $nivel)
+    public function setInserir(int $idNivel, string $nivel): void
     {
         $this->idNivel = $idNivel;
         $this->nivel = $nivel;
     }
 
-    public function setAlterar($coluna, $numeroId, $novoDado)
+    public function setAlterar(string $coluna, int $numeroId, string $novoDado): void
     {
         $this->coluna = $coluna;
         $this->numeroId = $numeroId;
         $this->novoDado = $novoDado;
     }
 
-    public function setDeletar($idNivel)
+    public function setDeletar(int $idNivel): void
     {
         $this->idNivel = $idNivel;
     }
 
-    public function inserirNivel()
+    public function inserirNivel(): array
     {
         $inserir = "insert into Nivel (id_nivel, nivel_no) values ($this->idNivel, '$this->nivel');";
-        $statement = $this->conexao->prepare($inserir);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($inserir);
+        return $executar;
     }
 
-    public function alterarNivel()
+    public function alterarNivel(): array
     {
         $alterar = "update nivel set {$this->coluna} = '{$this->novoDado}' where id_nivel = {$this->numeroId};";
-        $statement = $this->conexao->prepare($alterar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($alterar);
+        return $executar;
     }
 
-    public function deletarNivel()
+    public function deletarNivel(): array
     {
         $deletar = "delete from nivel where id_nivel = {$this->idNivel};";
-        $statement = $this->conexao->prepare($deletar);
-        $statement->execute();
-        print_r($statement->fetchAll());
+        $executar = $this->executar($deletar);
+        return $executar;
     }
 }
