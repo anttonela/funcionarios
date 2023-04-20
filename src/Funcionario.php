@@ -51,4 +51,11 @@ class Funcionario extends Banco
         $executar = $this->executar($deletar);
         return $executar;
     }
+
+    public function selectFuncionario(): array
+    {
+        $select = "select * from funcionario;";
+        $executar = $this->executar($select);
+        return $executar;
+    }
 }

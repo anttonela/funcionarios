@@ -31,6 +31,12 @@ $salvar->setDeletar(4);
 $salvar->deletarFuncionario();
 */
 
+// Select para ver tudo
+/*
+$salvar = new Funcionario();
+print_r($salvar->selectFuncionario());
+*/
+
 
 //                  NÍVEL
 
@@ -53,6 +59,12 @@ $salvar->alterarNivel();
 $salvar = new Nivel();
 $salvar->setDeletar(7);
 $salvar->deletarNivel();
+*/
+
+// Select para ver tudo
+/*
+$salvar = new Nivel();
+print_r($salvar->selectNivel());
 */
 
 
@@ -78,4 +90,10 @@ print_r($teste);
 $salvar = new Cargo();
 $salvar->setDeletar(1);
 $salvar->deletarCargo();
+*/
+
+// Select para ver tudo
+/*
+$salvar = new Cargo();
+print_r($salvar->selectCargo());
 */

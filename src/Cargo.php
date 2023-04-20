@@ -50,4 +50,11 @@ class Cargo extends Banco
         $executar = $this->executar($deletar);
         return $executar;
     }
+
+    public function selectCargo(): array
+    {
+        $select = "select * from cargo;";
+        $executar = $this->executar($select);
+        return $executar;
+    }
 }

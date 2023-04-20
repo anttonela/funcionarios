@@ -50,4 +50,11 @@ class Nivel extends Banco
         $executar = $this->executar($deletar);
         return $executar;
     }
+
+    public function selectNivel(): array
+    {
+        $select = "select * from nivel;";
+        $executar = $this->executar($select);
+        return $executar;
+    }
 }
