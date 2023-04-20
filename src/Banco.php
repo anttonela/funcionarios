@@ -2,9 +2,6 @@
 
 namespace Buscador;
 
-use PDO;
-use PDOException;
-
 class Banco
 {
     public $conexao;
